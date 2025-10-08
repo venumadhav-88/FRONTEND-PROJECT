@@ -1,33 +1,83 @@
-<<<<<<< HEAD
-# React + Vite
+# 🎓 FEDF-PS14: Placement Interaction System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📘 Overview
+The **Placement Interaction System** is a full-stack web application designed to **manage and track student placement records** efficiently.  
+It provides a centralized platform for **students**, **employers**, **placement officers**, and **administrators** to interact, manage job opportunities, and monitor application statuses in real time.
 
-Currently, two official plugins are available:
+This project is developed under the **FEDF-PS14** module requirement.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 👩‍💻 Admin
+- Manage all users (students, employers, officers).
+- Control system settings and permissions.
+- View and manage all job postings and placement data.
+- Generate summary reports for placements and applications.
 
-## Expanding the ESLint configuration
+### 🎓 Student
+- Explore job opportunities posted by employers.
+- Apply for jobs and track application statuses.
+- Update personal and academic profile.
+- Receive notifications on selection updates.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🏢 Employer
+- Create and manage company profile.
+- Post new job openings with details like role, package, and eligibility.
+- Review student applications.
+- Update application statuses (Under Review, Shortlisted, Selected, Rejected).
 
-## FEDF Mock Frontend (added)
+### 🎯 Placement Officer
+- Track placement records and generate reports.
+- Monitor student-employer interactions.
+- Assist in resolving placement queries.
 
-This workspace now contains a TypeScript React frontend with mock data, routing and role-based dashboards (student, employer, PO, admin).
+---
 
-To install dependencies and run locally (PowerShell):
+## 🏗️ Tech Stack
 
-```
-npm install
-npm run dev
-```
+| Layer | Technology Used |
+|-------|------------------|
+| **Frontend** | React (Vite), Tailwind CSS |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB (Mongoose) |
+| **Auth** | JWT (JSON Web Token) |
+| **Routing** | React Router v6 |
+| **API Calls** | Axios |
 
-Use one of the seeded users to login: alice (Student), bob (Employer), carol (PO), admin (Admin). Passwords are 'pass' for alice/bob/carol and 'admin' for admin.
-=======
-# FRONTEND-PROJECT
->>>>>>> cfe0dcf9ce8afbf99c718b52ac94d210f6db6cb2
+---
+
+## 📂 Project Structure
+FEDF/
+├── client/ # Frontend (Vite + React)
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── context/
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ └── package.json
+│
+├── server/ # Backend (Node + Express)
+│ ├── models/
+│ ├── routes/
+│ ├── controllers/
+│ ├── config/
+│ ├── middleware/
+│ └── index.js
+│
+├── README.md
+└── package.json
+
+---
+
+## ⚙️ Installation & Setup
+
+### 🔧 Prerequisites
+Ensure the following are installed:
+- Node.js (v18+)
+- npm or yarn
+- MongoDB (local or Atlas)
+
+
