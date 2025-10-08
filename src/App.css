@@ -1,0 +1,53 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#root { max-width: 1300px; margin: 0 auto; padding: 2rem; }
+
+.site-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 0; }
+.brand { display:flex; align-items:center; gap:0.75rem; }
+.brand .logo { height:48px; width:48px; border-radius:10px; overflow:hidden; }
+.brand h1 { margin:0; font-size:1.25rem; font-weight:700; color:var(--text); }
+
+.hero { display:flex; align-items:center; justify-content:space-between; gap:2rem; margin:2rem 0; }
+.hero .left { flex:1; }
+.hero .right { flex:1; display:flex; align-items:center; justify-content:center; }
+.hero h2 { font-size:clamp(1.6rem, 3.5vw, 2.6rem); margin:0 0 0.5rem; }
+.hero p { color:var(--muted); margin:0 0 1rem; }
+
+.logo:hover {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+}
+
+.read-the-docs {
+  color: #888;
+}

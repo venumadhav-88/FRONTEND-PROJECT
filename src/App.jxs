@@ -1,0 +1,101 @@
+import React from 'react'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { Container, AppBar, Toolbar, Typography, Button } from '@mui/material'
+import { AuthProvider, useAuth } from './context/AuthContext'
+import LoginPage from './pages/LoginPage'
+import StudentDashboard from './pages/StudentDashboard'
+import EmployerDashboard from './pages/EmployerDashboard'
+import PODashboard from './pages/PODashboard'
+import AdminDashboard from './pages/AdminDashboard'
+
+function NavBar() {
+  const auth = useAuth()
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          FEDF Mock
+        </Typography>
+        {!auth.user ? (
+          <Button color="inherit" component={Link} to="/login">Login</Button>
+        ) : (
+          <>
+            <Button color="inherit" component={Link} to="/">Home</Button>
+            <Button color="inherit" onClick={() => auth.logout()}>Logout</Button>
+          </>
+        )}
+      </Toolbar>
+    </AppBar>
+  )
+}
+
+function ProtectedRoute({ children, roles }: { children: React.ReactNode; roles?: string[] }) {
+  const auth = useAuth()
+  if (!auth.user) return <Navigate to="/login" replace />
+  if (roles && !roles.includes(auth.user.role)) return <Navigate to="/" replace />
+  return children
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <NavBar />
+      <Container sx={{ mt: 4 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+
+          <Route
+            path="/student/*"
+            element={
+              <ProtectedRoute roles={["Student"]}>
+                <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/employer/*"
+            element={
+              <ProtectedRoute roles={["Employer"]}>
+                <EmployerDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/po/*"
+            element={
+              <ProtectedRoute roles={["PO"]}>
+                <PODashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/*"
+            element={
+              <ProtectedRoute roles={["Admin"]}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Container>
+    </AuthProvider>
+  )
+}
+
+function Home() {
+  const auth = useAuth()
+  return (
+    <div>
+      <Typography variant="h4">Welcome to FEDF Mock</Typography>
+      {!auth.user ? (
+        <Typography>Please <Link to="/login">login</Link> to continue.</Typography>
+      ) : (
+        <Typography>You're logged in as {auth.user.name} ({auth.user.role}). Use navigation to go to your dashboard.</Typography>
+      )}
+    </div>
+  )
+}
