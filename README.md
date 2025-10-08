@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -27,3 +28,6 @@ npm run dev
 ```
 
 Use one of the seeded users to login: alice (Student), bob (Employer), carol (PO), admin (Admin). Passwords are 'pass' for alice/bob/carol and 'admin' for admin.
+=======
+# FRONTEND-PROJECT
+>>>>>>> cfe0dcf9ce8afbf99c718b52ac94d210f6db6cb2
