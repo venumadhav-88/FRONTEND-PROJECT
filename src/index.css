@@ -1,0 +1,69 @@
+:root {
+  --bg: #0b0e14;
+  --layer: #0f131b;
+  --elev: #121826;
+  --border: #1f2a3b;
+  --muted: #8a93a7;
+  --accent: #6e8bff;
+  --accent-ghost: rgba(110, 139, 255, 0.15);
+
+  color-scheme: dark light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: #e6e9ef;
+}
+
+h1, h2, h3, h4 { line-height: 1.2; }
+p { margin: 0; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+input, select, textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--elev);
+  color: inherit;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+}
+button.secondary { background: transparent; color: inherit; }
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --layer: #ffffffcc;
+  --elev: #ffffff;
+  --border: #e6e8ef;
+  --muted: #5b667a;
+  --accent: #3355ff;
+  --accent-ghost: rgba(51, 85, 255, 0.12);
+}
+[data-theme="light"] body { color: #0b1220; }
+
+/* Subtle shadows for light mode on elevated surfaces */
+[data-theme="light"] .card-box,
+[data-theme="light"] .table,
+[data-theme="light"] .about-wrap,
+[data-theme="light"] .sidebar {
+  box-shadow: 0 6px 18px rgba(12, 19, 42, 0.08);
+}
